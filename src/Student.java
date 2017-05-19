@@ -3,7 +3,6 @@ import java.util.ArrayList;
 public class Student {
     private String nume;
     private ArrayList<Integer> note;
-    private float medie;
 
     public Student(String nume) {
         this.nume = nume;
@@ -36,13 +35,13 @@ public class Student {
         return nrDiscipline;
     }
 
-    public void medieAritmetica() {
-        float m = 0;
+    public float medieAritmetica() {
+        int m = 0;
         for (Integer n : note)
             if (n >= 5)
                 m += n;
 
-        this.medie = m / this.nrDisciplinePromovate();
+        return m / this.nrDisciplinePromovate();
     }
 
     public int notaFrecventaMaxima() {
