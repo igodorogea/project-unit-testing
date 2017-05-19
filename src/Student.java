@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Student {
     private String nume;
@@ -49,9 +51,26 @@ public class Student {
     }
 
     public int notaFrecventaMaxima() {
-        int nota = 0;
-        //corpul metodei pentru returnarea notei de frecventa maxima
-        return nota;
+        // TreeMap is self sortable
+        TreeMap<Integer, Integer> mapNote = new TreeMap<>();
+        for(Integer n: note) {
+            if (mapNote.containsKey(n)) {
+                mapNote.put(n, mapNote.get(n) + 1);
+            } else {
+                mapNote.put(n, 1);
+            }
+        }
+
+        int notaFrecventa = 0;
+        int max = 0;
+        for(Map.Entry<Integer, Integer> m: mapNote.entrySet()){
+            if (max <= m.getValue()) {
+                max = m.getValue();
+                notaFrecventa = m.getKey();
+            }
+        }
+
+        return notaFrecventa;
     }
 
     @Override
