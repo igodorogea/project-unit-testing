@@ -12,9 +12,7 @@ public class Student {
 
     public Student(String nume, ArrayList<Integer> note) {
         this.nume = nume;
-        this.note = new ArrayList<>();
-        for (Integer n : note)
-            this.note.add(n);
+        this.note = note;
     }
 
     public String getNume() {
@@ -55,9 +53,10 @@ public class Student {
 
     @Override
     public String toString() {
-        String output = this.nume + " note: ";
+        StringBuilder output = new StringBuilder(nume + " note: ");
         for (Integer n : note)
-            output += n + " ";
-        return output;
+            output.append(n).append(" ");
+
+        return output.toString();
     }
 }
