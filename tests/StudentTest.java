@@ -35,4 +35,14 @@ public class StudentTest {
         assertEquals(8, student.medieAritmetica(), 0.001);
     }
 
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddNotaBoundaryLow() {
+        student.addNota(-1);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testAddNotaBoundaryHigh() {
+        student.addNota(12);
+    }
+
 }

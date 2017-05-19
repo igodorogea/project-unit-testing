@@ -19,6 +19,10 @@ public class Student {
     }
 
     public void addNota(int nota) {
+        if (nota > 10 || nota < 1) {
+            throw new IllegalArgumentException("Nota trebuie sa fie intre 1 si 10");
+        }
+
         note.add(nota);
     }
 
