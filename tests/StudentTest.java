@@ -1,5 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import static org.junit.Assert.*;
 
 
@@ -43,6 +47,19 @@ public class StudentTest {
     @Test(expected = IllegalArgumentException.class)
     public void testAddNotaBoundaryHigh() {
         student.addNota(12);
+    }
+
+
+    @Test
+    public void testNotaFrecventaMaximaRight() throws Exception {
+        student = new Student("John Doe", new ArrayList<>(Arrays.asList(5, 6, 7)));
+        assertEquals(7, student.notaFrecventaMaxima());
+
+        student = new Student("John Doe", new ArrayList<>(Arrays.asList(5, 5, 6, 7)));
+        assertEquals(5, student.notaFrecventaMaxima());
+
+        student = new Student("John Doe", new ArrayList<>(Arrays.asList(5, 5, 6, 6, 7)));
+        assertEquals(6, student.notaFrecventaMaxima());
     }
 
 }
