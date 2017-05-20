@@ -1,5 +1,6 @@
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,12 +16,14 @@ public class StudentTest {
         student = new Student("John Doe");
     }
 
+    @Category(RightTestsSuite.class)
     @Test
     public void testAddNotaRight() throws Exception {
         int nota = 8;
         student.addNota(nota);
     }
 
+    @Category(RightTestsSuite.class)
     @Test
     public void testGetNotaRight() throws Exception {
         int nota = 8;
@@ -28,6 +31,7 @@ public class StudentTest {
         assertEquals(nota, student.getNota(0));
     }
 
+    @Category(RightTestsSuite.class)
     @Test
     public void testMedieAritmeticaRight() throws Exception {
         int firstNota = 8;
@@ -50,6 +54,7 @@ public class StudentTest {
     }
 
 
+    @Category(RightTestsSuite.class)
     @Test
     public void testNotaFrecventaMaximaRight() throws Exception {
         student = new Student("John Doe", new ArrayList<>(Arrays.asList(5, 6, 7)));
